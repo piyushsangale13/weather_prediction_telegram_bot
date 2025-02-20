@@ -2,10 +2,12 @@ from telegram import Update
 from telegram.ext import Application, MessageHandler, filters, CommandHandler, CallbackContext
 import requests
 import os
+from dotenv import load_dotenv
 
+load_dotenv()
 # Replace with your bot token
-BOT_TOKEN = "7995166611:AAFIYNOpC7EmnMDlqP4_4kaDholYrAKO_rk"
-FLASK_SERVER_URL = "http://127.0.0.1:5000/predict"  # Change to deployed server URL
+BOT_TOKEN = os.getenv("BOT_TOKEN")
+FLASK_SERVER_URL = os.getenv("FLASK_SERVER_URL")
 
 # Function to handle incoming images
 async def handle_image(update: Update, context: CallbackContext):
